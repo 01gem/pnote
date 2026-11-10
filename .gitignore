@@ -9,3 +9,10 @@
 .cxx
 local.properties
 .kotlin/
+
+# Build artifacts & release outputs
+*.apk
+*.aab
+/app/release/
+release/
+mapping.txt
