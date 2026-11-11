@@ -29,19 +29,21 @@ private val PNoteColorScheme = darkColorScheme(
     outline = CardBorder,
     outlineVariant = OrangeContainerBorder,
     error = DeleteRed,
-    onError = PitchBlack
+    onError = PitchBlack,
 )
 
 @Composable
 fun PNoteTheme(
-    content: @Composable () -> Unit
+    content: @Composable () -> Unit,
 ) {
     val view = LocalView.current
     if (!view.isInEditMode) {
         SideEffect {
             val window = (view.context as? Activity)?.window
             if (window != null) {
+                @Suppress("DEPRECATION")
                 window.statusBarColor = PitchBlack.toArgb()
+                @Suppress("DEPRECATION")
                 window.navigationBarColor = PitchBlack.toArgb()
                 val insetsController = WindowCompat.getInsetsController(window, view)
                 insetsController.isAppearanceLightStatusBars = false
@@ -53,6 +55,6 @@ fun PNoteTheme(
     MaterialTheme(
         colorScheme = PNoteColorScheme,
         typography = Typography,
-        content = content
+        content = content,
     )
 }

@@ -47,7 +47,7 @@ class MainActivity : ComponentActivity() {
             PNoteTheme {
                 NotesScreen(
                     viewModel = viewModel,
-                    modifier = Modifier.fillMaxSize()
+                    modifier = Modifier.fillMaxSize(),
                 )
             }
         }

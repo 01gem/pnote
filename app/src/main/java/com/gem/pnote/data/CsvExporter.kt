@@ -121,7 +121,7 @@ object CsvExporter {
             val contentUri = FileProvider.getUriForFile(
                 context,
                 "${context.packageName}.fileprovider",
-                file
+                file,
             )
 
             Intent(Intent.ACTION_SEND).apply {

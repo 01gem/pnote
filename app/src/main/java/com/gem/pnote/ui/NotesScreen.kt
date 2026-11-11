@@ -3,7 +3,6 @@ package com.gem.pnote.ui
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -39,7 +38,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Brush
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
@@ -51,7 +49,6 @@ import com.gem.pnote.ui.components.NoteEditorScreen
 import com.gem.pnote.ui.theme.CardBorder
 import com.gem.pnote.ui.theme.CardDark
 import com.gem.pnote.ui.theme.CardElevated
-import com.gem.pnote.ui.theme.ObsidianDark
 import com.gem.pnote.ui.theme.OrangeContainer
 import com.gem.pnote.ui.theme.OrangeContainerBorder
 import com.gem.pnote.ui.theme.OrangeLight
@@ -66,7 +63,7 @@ import com.gem.pnote.ui.theme.TextSecondary
 @Composable
 fun NotesScreen(
     viewModel: NotesViewModel,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
 ) {
     val notes by viewModel.notes.collectAsState()
     val filteredNotes by viewModel.filteredNotes.collectAsState()
@@ -300,7 +297,7 @@ fun NotesScreen(
                             .padding(horizontal = 6.dp, vertical = 2.dp)
                     ) {
                         Text(
-                            text = "${filteredNotes.size}",
+                            text = filteredNotes.size.toString(),
                             color = OrangeLight,
                             fontSize = 11.sp,
                             fontWeight = FontWeight.Bold
@@ -390,7 +387,7 @@ fun NotesScreen(
                 ) {
                     items(
                         items = filteredNotes,
-                        key = { it.id }
+                        key = { it.id },
                     ) { note ->
                         NoteCard(
                             note = note,

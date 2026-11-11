@@ -34,7 +34,6 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
@@ -45,7 +44,6 @@ import androidx.compose.ui.window.DialogProperties
 import com.gem.pnote.data.CsvExporter
 import com.gem.pnote.data.Note
 import com.gem.pnote.ui.theme.CardBorder
-import com.gem.pnote.ui.theme.CardDark
 import com.gem.pnote.ui.theme.CardElevated
 import com.gem.pnote.ui.theme.ObsidianDark
 import com.gem.pnote.ui.theme.OrangeContainer
@@ -62,7 +60,7 @@ import com.gem.pnote.ui.theme.TextSecondary
 fun CsvExportDialog(
     notes: List<Note>,
     onDismiss: () -> Unit,
-    onExportSuccess: (String) -> Unit
+    onExportSuccess: (String) -> Unit,
 ) {
     val context = LocalContext.current
     val csvString = remember(notes) { CsvExporter.generateCsv(notes) }
@@ -70,7 +68,7 @@ fun CsvExportDialog(
 
     // Android Storage Access Framework (SAF) launcher for saving CSV to device
     val createDocumentLauncher = rememberLauncherForActivityResult(
-        contract = ActivityResultContracts.CreateDocument("text/csv")
+        contract = ActivityResultContracts.CreateDocument("text/csv"),
     ) { uri ->
         if (uri != null) {
             val success = CsvExporter.writeCsvToUri(context, uri, notes)
@@ -85,7 +83,7 @@ fun CsvExportDialog(
 
     Dialog(
         onDismissRequest = onDismiss,
-        properties = DialogProperties(usePlatformDefaultWidth = false)
+        properties = DialogProperties(usePlatformDefaultWidth = false),
     ) {
         Card(
             modifier = Modifier
@@ -93,20 +91,20 @@ fun CsvExportDialog(
                 .clip(RoundedCornerShape(24.dp)),
             shape = RoundedCornerShape(24.dp),
             colors = CardDefaults.cardColors(
-                containerColor = ObsidianDark
+                containerColor = ObsidianDark,
             ),
-            border = BorderStroke(1.dp, OrangeContainerBorder)
+            border = BorderStroke(1.dp, OrangeContainerBorder),
         ) {
             Column(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(22.dp)
+                    .padding(22.dp),
             ) {
                 // Header with Orange Accent Badge and Close Icon
                 Row(
                     modifier = Modifier.fillMaxWidth(),
                     verticalAlignment = Alignment.CenterVertically,
-                    horizontalArrangement = Arrangement.SpaceBetween
+                    horizontalArrangement = Arrangement.SpaceBetween,
                 ) {
                     Row(verticalAlignment = Alignment.CenterVertically) {
                         Box(
@@ -162,17 +160,17 @@ fun CsvExportDialog(
                 ) {
                     StatPill(
                         label = "Notes",
-                        value = "${notes.size}",
+                        value = notes.size.toString(),
                         modifier = Modifier.weight(1f)
                     )
                     StatPill(
                         label = "Total Words",
-                        value = "${notes.sumOf { it.wordCount }}",
+                        value = notes.sumOf { it.wordCount }.toString(),
                         modifier = Modifier.weight(1f)
                     )
                     StatPill(
                         label = "File Size",
-                        value = "${(csvString.toByteArray().size / 1024.0).let { String.format(java.util.Locale.US, "%.1f KB", it) }}",
+                        value = (csvString.toByteArray().size / 1024.0).let { String.format(java.util.Locale.US, "%.1f KB", it) },
                         modifier = Modifier.weight(1f)
                     )
                 }

@@ -14,7 +14,7 @@ object PNoteIcons {
             defaultWidth = 24.dp,
             defaultHeight = 24.dp,
             viewportWidth = 24f,
-            viewportHeight = 24f
+            viewportHeight = 24f,
         ).apply {
             path(fill = SolidColor(Color.White)) {
                 moveTo(19f, 13f)
@@ -41,7 +41,7 @@ object PNoteIcons {
             defaultWidth = 24.dp,
             defaultHeight = 24.dp,
             viewportWidth = 24f,
-            viewportHeight = 24f
+            viewportHeight = 24f,
         ).apply {
             path(fill = SolidColor(Color.White)) {
                 moveTo(6f, 19f)
@@ -72,7 +72,7 @@ object PNoteIcons {
             defaultWidth = 24.dp,
             defaultHeight = 24.dp,
             viewportWidth = 24f,
-            viewportHeight = 24f
+            viewportHeight = 24f,
         ).apply {
             path(fill = SolidColor(Color.White)) {
                 moveTo(12f, 17.27f)
@@ -96,7 +96,7 @@ object PNoteIcons {
             defaultWidth = 24.dp,
             defaultHeight = 24.dp,
             viewportWidth = 24f,
-            viewportHeight = 24f
+            viewportHeight = 24f,
         ).apply {
             path(fill = SolidColor(Color.White)) {
                 moveTo(15.5f, 14f)
@@ -129,7 +129,7 @@ object PNoteIcons {
             defaultWidth = 24.dp,
             defaultHeight = 24.dp,
             viewportWidth = 24f,
-            viewportHeight = 24f
+            viewportHeight = 24f,
         ).apply {
             path(fill = SolidColor(Color.White)) {
                 moveTo(19f, 6.41f)
@@ -155,7 +155,7 @@ object PNoteIcons {
             defaultWidth = 24.dp,
             defaultHeight = 24.dp,
             viewportWidth = 24f,
-            viewportHeight = 24f
+            viewportHeight = 24f,
         ).apply {
             path(fill = SolidColor(Color.White)) {
                 moveTo(20f, 11f)
@@ -179,7 +179,7 @@ object PNoteIcons {
             defaultWidth = 24.dp,
             defaultHeight = 24.dp,
             viewportWidth = 24f,
-            viewportHeight = 24f
+            viewportHeight = 24f,
         ).apply {
             path(fill = SolidColor(Color.White)) {
                 moveTo(18f, 16.08f)
@@ -214,7 +214,7 @@ object PNoteIcons {
             defaultWidth = 24.dp,
             defaultHeight = 24.dp,
             viewportWidth = 24f,
-            viewportHeight = 24f
+            viewportHeight = 24f,
         ).apply {
             path(fill = SolidColor(Color.White)) {
                 moveTo(9f, 16.17f)
