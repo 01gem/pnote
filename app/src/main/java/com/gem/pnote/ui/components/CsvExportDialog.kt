@@ -172,7 +172,7 @@ fun CsvExportDialog(
                     )
                     StatPill(
                         label = "File Size",
-                        value = "${(csvString.toByteArray().size / 1024.0).let { String.format("%.1f KB", it) }}",
+                        value = "${(csvString.toByteArray().size / 1024.0).let { String.format(java.util.Locale.US, "%.1f KB", it) }}",
                         modifier = Modifier.weight(1f)
                     )
                 }

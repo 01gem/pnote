@@ -8,21 +8,29 @@ import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
+import androidx.activity.viewModels
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
 import com.gem.pnote.data.NoteRepository
 import com.gem.pnote.ui.NotesScreen
 import com.gem.pnote.ui.NotesViewModel
 import com.gem.pnote.ui.theme.PNoteTheme
 
 class MainActivity : ComponentActivity() {
+    private val viewModel: NotesViewModel by viewModels {
+        object : ViewModelProvider.Factory {
+            @Suppress("UNCHECKED_CAST")
+            override fun <T : ViewModel> create(modelClass: Class<T>): T {
+                return NotesViewModel(NoteRepository(applicationContext)) as T
+            }
+        }
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            val repository = remember { NoteRepository(applicationContext) }
-            val viewModel = remember { NotesViewModel(repository) }
-
             val isEditorOpen by viewModel.isEditorOpen.collectAsState()
             val isCsvDialogOpen by viewModel.isCsvDialogOpen.collectAsState()
             val searchQuery by viewModel.searchQuery.collectAsState()
